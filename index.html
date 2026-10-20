@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fund Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep:#04201c; --mid:#0a3b34; --lagoon:#12e0c0; --sand:#f3e9d2;
+    --muted:#8fb8ad; --up:#5cf2a6; --down:#ff7a6b; --hibiscus:#ff5d73;
+  }
+  * { box-sizing:border-box; margin:0; }
+  html, body { height:100%; overflow:hidden; }
+  body {
+    font-family:'Outfit', system-ui, sans-serif; color:var(--sand);
+    background:
+      radial-gradient(ellipse at 85% 0%, rgba(18,224,192,.16), transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(255,93,115,.10), transparent 50%),
+      linear-gradient(160deg, var(--mid), var(--deep) 70%);
+    display:flex; flex-direction:column; padding:3vh 3.5vw 2.5vh; position:relative;
+  }
+  .frond { position:absolute; pointer-events:none; opacity:.13; z-index:0; }
+  #f1 { top:-6vh; right:-4vw; width:34vw; transform:rotate(8deg); }
+  #f2 { bottom:-9vh; left:-6vw; width:30vw; transform:rotate(190deg); opacity:.10; }
+  header, .table { position:relative; z-index:1; }
+  header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2vh; }
+  h1 { font-weight:300; font-size:4.2vh; letter-spacing:.14em; text-transform:uppercase; }
+  h1 b { font-weight:600; color:var(--lagoon); }
+  .meta { text-align:right; color:var(--muted); font-size:2vh; line-height:1.35; }
+  .clock { font-size:3.4vh; color:var(--sand); font-weight:300; }
+  .table { flex:1; display:flex; flex-direction:column; min-height:0; }
+  .row {
+    flex:1; display:grid; grid-template-columns:2.6fr 1fr 1fr 1fr 1fr;
+    align-items:center; padding:0 2vw; margin-bottom:.8vh; min-height:0;
+    background:rgba(255,255,255,.045); border:1px solid rgba(255,255,255,.07);
+    border-radius:1.6vh; backdrop-filter:blur(6px);
+  }
+  .row.head { flex:0 0 auto; background:none; border:0; padding-bottom:0; margin-bottom:.4vh; }
+  .head div { color:var(--muted); font-size:1.9vh; letter-spacing:.2em; text-transform:uppercase; text-align:right; }
+  .head div:first-child { text-align:left; }
+  .fund { display:flex; align-items:baseline; gap:1.4vw; min-width:0; }
+  .tk { font-weight:600; font-size:3.2vh; color:var(--lagoon); min-width:6.5ch; letter-spacing:.04em; }
+  .nm { font-size:2.5vh; font-weight:300; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .val { text-align:right; font-size:3.4vh; font-weight:500; font-variant-numeric:tabular-nums; }
+  .up { color:var(--up); } .down { color:var(--down); } .flat { color:var(--muted); }
+  .empty { margin:auto; color:var(--muted); font-size:3vh; text-align:center; }
+  .demo { position:fixed; bottom:1vh; right:1.5vw; z-index:2; color:var(--hibiscus); font-size:1.8vh; letter-spacing:.15em; }
+</style>
+</head>
+<body>
+  <svg class="frond" id="f1" viewBox="-200 -200 400 400"></svg>
+  <svg class="frond" id="f2" viewBox="-200 -200 400 400"></svg>
+
+  <header>
+    <h1>Fund <b>Tracker</b></h1>
+    <div class="meta"><div class="clock" id="clock"></div><div id="updated"></div></div>
+  </header>
+
+  <div class="table">
+    <div class="row head"><div>Fund</div><div>1 Day</div><div>1 Week</div><div>1 Month</div><div>1 Year</div></div>
+    <div id="rows" style="display:contents"></div>
+  </div>
+
+<script>
+// Palm frond decoration
+function frond(svg) {
+  let s = '<g fill="#12e0c0"><path d="M-190 150 Q-40 40 190 -150" stroke="#12e0c0" stroke-width="3" fill="none"/>';
+  for (let i = 0; i < 14; i++) {
+    const t = i / 13, x = -190 + 380 * t, y = 150 - 300 * t + Math.sin(t * 3) * 20 * 0 - 110 * Math.sin(t * Math.PI) * 0.35;
+    const len = 95 * (1 - Math.abs(t - .45) * .9);
+    [-1, 1].forEach(side => {
+      s += `<ellipse cx="${x}" cy="${y}" rx="${len/2}" ry="7" transform="rotate(${-38 + side * 62} ${x} ${y}) translate(${len/2} 0)"/>`;
+    });
+  }
+  svg.innerHTML = s + '</g>';
+}
+frond(document.getElementById('f1')); frond(document.getElementById('f2'));
+
+// Clock
+function tick() {
+  document.getElementById('clock').textContent =
+    new Date().toLocaleString([], { weekday:'long', month:'short', day:'numeric', hour:'numeric', minute:'2-digit' });
+}
+tick(); setInterval(tick, 15000);
+
+// Table
+const fmt = v => v == null ? "—" : (v > 0 ? "+" : "") + v.toFixed(2) + "%";
+const cls = v => v > 0 ? "up" : v < 0 ? "down" : "flat";
+function render(d) {
+  document.getElementById('updated').textContent = "Data as of " + d.updated;
+  document.getElementById('rows').innerHTML = d.funds.map(f => `
+    <div class="row">
+      <div class="fund"><span class="tk">${f.ticker}</span><span class="nm">${f.name}</span></div>
+      ${["day","week","month","year"].map(k => `<div class="val ${f.error ? 'flat' : cls(f[k])}">${f.error ? '—' : fmt(f[k])}</div>`).join("")}
+    </div>`).join("");
+}
+
+const DEMO = new URLSearchParams(location.search).has('demo');
+function load() {
+  if (DEMO) {
+    const names = ["MFS Growth I","Putnam Core Equity Fund Y","Vanguard Mega Cap Growth ETF","Fidelity Advisor Growth Opps I","PGIM Jennison Global Opportunities Z","Harbor Capital Appreciation Instl","T. Rowe Price Blue Chip Growth","Invesco Equally-Wtd S&P 500 Y","Invesco Emerging Markets ex-China Y","Putnam Large Cap Value Y"];
+    const tks = ["MFEIX","PMYYX","MGK","FAGCX","PRJZX","HACAX","TRBCX","VADDX","GTDYX","PEIYX"];
+    const sample = [[.42,1.8,3.1,24.5],[.31,1.2,2.4,19.8],[.55,2.1,3.6,27.2],[.38,1.5,2.9,22.1],[-.12,.9,1.7,17.6],[.47,1.9,3.3,25.0],[.51,2.0,3.5,26.3],[-.08,.6,1.2,12.4],[-.35,-.7,-1.1,8.9],[.05,.3,.8,10.2]];
+    render({ updated:"SAMPLE NUMBERS", funds: tks.map((t,i) => ({ticker:t, name:names[i], day:sample[i][0], week:sample[i][1], month:sample[i][2], year:sample[i][3]})) });
+    document.body.insertAdjacentHTML('beforeend','<div class="demo">DEMO · SAMPLE DATA</div>');
+    return;
+  }
+  fetch("data.json?t=" + Date.now()).then(r => r.json()).then(render).catch(() => {
+    if (!document.querySelector('.row:not(.head)'))
+      document.getElementById('rows').innerHTML = '<div class="empty">No data yet.<br>Run the “Update fund data” workflow once to create data.json.</div>';
+  });
+}
+load();
+if (!DEMO) setInterval(load, 30 * 60 * 1000);   // re-check every 30 min so the TV stays current
+</script>
+</body>
+</html>
