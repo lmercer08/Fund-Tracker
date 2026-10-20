@@ -1,0 +1,85 @@
+{
+  "updated": "2026-10-20 19:54 UTC",
+  "funds": [
+    {
+      "ticker": "MFEIX",
+      "name": "MFS Growth I",
+      "day": 0.77,
+      "week": -3.1,
+      "month": -0.32,
+      "year": 5.09
+    },
+    {
+      "ticker": "PMYYX",
+      "name": "Putnam Core Equity Fund Y",
+      "day": 0.3,
+      "week": -1.28,
+      "month": 0.0,
+      "year": 14.15
+    },
+    {
+      "ticker": "MGK",
+      "name": "Vanguard Mega Cap Growth ETF",
+      "day": -0.24,
+      "week": -3.64,
+      "month": -0.14,
+      "year": 11.69
+    },
+    {
+      "ticker": "FAGCX",
+      "name": "Fidelity Advisor Growth Opps I",
+      "day": 0.94,
+      "week": -4.68,
+      "month": -3.29,
+      "year": 13.08
+    },
+    {
+      "ticker": "PRJZX",
+      "name": "PGIM Jennison Global Opportunities Z",
+      "day": 0.81,
+      "week": -5.26,
+      "month": -2.39,
+      "year": -8.98
+    },
+    {
+      "ticker": "HACAX",
+      "name": "Harbor Capital Appreciation Instl",
+      "day": 1.01,
+      "week": -2.83,
+      "month": 1.45,
+      "year": 10.53
+    },
+    {
+      "ticker": "TRBCX",
+      "name": "T. Rowe Price Blue Chip Growth",
+      "day": 0.87,
+      "week": -2.89,
+      "month": 0.53,
+      "year": 4.67
+    },
+    {
+      "ticker": "VADDX",
+      "name": "Invesco Equally-Wtd S&P 500 Y",
+      "day": -0.32,
+      "week": 0.1,
+      "month": 0.88,
+      "year": 15.24
+    },
+    {
+      "ticker": "GTDYX",
+      "name": "Invesco Emerging Markets ex-China Y",
+      "day": 1.29,
+      "week": -4.49,
+      "month": -5.07,
+      "year": 44.2
+    },
+    {
+      "ticker": "PEIYX",
+      "name": "Putnam Large Cap Value Y",
+      "day": -0.37,
+      "week": -0.29,
+      "month": 1.43,
+      "year": 24.21
+    }
+  ]
+}
