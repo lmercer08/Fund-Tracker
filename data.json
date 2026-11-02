@@ -1,113 +1,113 @@
 {
-  "updated": "2026-10-30 23:22 UTC",
+  "updated": "2026-11-02 23:27 UTC",
   "funds": [
     {
       "ticker": "IVV",
       "name": "iShares Core S&P 500 ETF",
       "url": "https://www.morningstar.com/etfs/arcx/ivv/quote",
-      "day": -1.78,
-      "week": -0.53,
-      "month": -0.87,
-      "year": 12.43
+      "day": -0.5,
+      "week": -1.73,
+      "month": -2.29,
+      "year": 11.54
     },
     {
       "ticker": "MFEIX",
       "name": "MFS Growth I",
       "url": "https://www.morningstar.com/funds/xnas/mfeix/quote",
-      "day": -1.41,
-      "week": 0.3,
-      "month": -3.38,
-      "year": -1.83
+      "day": -2.67,
+      "week": -1.95,
+      "month": -5.99,
+      "year": -2.82
     },
     {
       "ticker": "PMYYX",
       "name": "Putnam Core Equity Fund Y",
       "url": "https://www.morningstar.com/funds/xnas/pmyyx/quote",
-      "day": -0.17,
-      "week": 0.72,
-      "month": 0.91,
-      "year": 10.96
+      "day": -1.6,
+      "week": -0.24,
+      "month": -0.37,
+      "year": 10.37
     },
     {
       "ticker": "MGK",
       "name": "Vanguard Mega Cap Growth ETF",
       "url": "https://www.morningstar.com/etfs/arcx/mgk/quote",
-      "day": -3.1,
-      "week": -2.17,
-      "month": -6.26,
-      "year": 3.89
+      "day": -1.38,
+      "week": -4.38,
+      "month": -8.57,
+      "year": 2.16
     },
     {
       "ticker": "FAGCX",
       "name": "Fidelity Advisor Growth Opps I",
       "url": "https://www.morningstar.com/funds/xnas/fagcx/quote",
-      "day": -1.49,
-      "week": 1.14,
-      "month": -6.75,
-      "year": 5.71
+      "day": -3.59,
+      "week": -2.0,
+      "month": -9.88,
+      "year": 4.27
     },
     {
       "ticker": "PRJZX",
       "name": "PGIM Jennison Global Opportunities Z",
       "url": "https://www.morningstar.com/funds/xnas/prjzx/quote",
-      "day": -0.5,
-      "week": 1.13,
-      "month": -6.51,
-      "year": -13.62
+      "day": -2.99,
+      "week": -1.48,
+      "month": -8.86,
+      "year": -14.85
     },
     {
       "ticker": "HACAX",
       "name": "Harbor Capital Appreciation Instl",
       "url": "https://www.morningstar.com/funds/xnas/hacax/quote",
-      "day": -0.9,
-      "week": 0.86,
-      "month": -0.92,
-      "year": 4.25
+      "day": -2.56,
+      "week": -1.53,
+      "month": -3.38,
+      "year": 3.45
     },
     {
       "ticker": "TRBCX",
       "name": "T. Rowe Price Blue Chip Growth",
       "url": "https://www.morningstar.com/funds/xnas/trbcx/quote",
-      "day": -1.09,
-      "week": 0.7,
-      "month": -3.43,
-      "year": -2.67
+      "day": -2.69,
+      "week": -1.36,
+      "month": -5.88,
+      "year": -3.12
     },
     {
       "ticker": "VADDX",
       "name": "Invesco Equally-Wtd S&P 500 Y",
       "url": "https://www.morningstar.com/funds/xnas/vaddx/quote",
-      "day": 1.22,
-      "week": 0.83,
-      "month": 5.04,
-      "year": 18.66
+      "day": -0.78,
+      "week": 0.82,
+      "month": 4.98,
+      "year": 18.22
     },
     {
       "ticker": "GTDYX",
       "name": "Invesco Emerging Markets ex-China Y",
       "url": "https://www.morningstar.com/funds/xnas/gtdyx/quote",
-      "day": -1.79,
-      "week": 0.91,
-      "month": -6.17,
-      "year": 37.25
+      "day": -3.17,
+      "week": -2.71,
+      "month": -7.99,
+      "year": 33.29
     },
     {
       "ticker": "PEIYX",
       "name": "Putnam Large Cap Value Y",
       "url": "https://www.morningstar.com/funds/xnas/peiyx/quote",
-      "day": 0.81,
-      "week": 1.05,
-      "month": 4.35,
-      "year": 24.51
+      "day": -0.35,
+      "week": 1.29,
+      "month": 4.51,
+      "year": 24.36
     },
     {
       "ticker": "DPDFX",
       "name": "Nomura Diversified Income A",
       "url": "https://www.morningstar.com/funds/xnas/dpdfx/quote",
-      "day": 0.27,
-      "week": 0.14,
-      "month": 1.76,
-      "year": -1.17
+      "day": 0.0,
+      "week": 0.27,
+      "month": 1.51,
+      "year": -1.04
     },
     {
       "ticker": "PADZX",
@@ -115,26 +115,26 @@
       "url": "https://www.morningstar.com/funds/xnas/padzx/quote",
       "day": 0.0,
       "week": 0.22,
-      "month": 0.08,
+      "month": -0.33,
       "year": 4.06
     },
     {
       "ticker": "BSIIX",
       "name": "BlackRock Strategic Income Opps Instl",
       "url": "https://www.morningstar.com/funds/xnas/bsiix/quote",
-      "day": 0.11,
-      "week": 0.11,
-      "month": 0.71,
-      "year": 1.73
+      "day": -0.11,
+      "week": 0.0,
+      "month": 0.21,
+      "year": 1.83
     },
     {
       "ticker": "RETSX",
       "name": "Russell Tax-Managed US Large Cap S",
       "url": "https://www.morningstar.com/funds/xnas/retsx/quote",
-      "day": -0.51,
-      "week": 0.39,
-      "month": 0.74,
-      "year": 11.85
+      "day": -1.53,
+      "week": -0.64,
+      "month": -0.61,
+      "year": 11.36
     }
   ]
 }
